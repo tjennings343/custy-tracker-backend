@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :phones
-  resources :customers
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :customers do
+    resources :phones
+  end
 end
