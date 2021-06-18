@@ -1,8 +1,9 @@
 class PhonesController < ApplicationController
-    before_action :set_customer, :set_phone
+    before_action :set_customer
+    before_action :set_phone, only: [:show, :destroy]
 
     def index
-        @phones = @customer.phones
+        @phones = Phone.all
         render json: @phones
     end
 
@@ -19,6 +20,8 @@ class PhonesController < ApplicationController
         @phone.destroy
         render json: {success: 'Phone Deleted'}
     end
+
+    
 
     private
 
